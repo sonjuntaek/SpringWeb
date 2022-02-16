@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="speaker" class="com.web.speaker.SonySpeaker"></bean>
+
+	<bean id="tv" class="com.web.tv.SamSungTV" init-method="turnOn"
+		destroy-method="turnOff">
+		<constructor-arg ref="speaker"></constructor-arg>
+		<property name="Volume" value="1000"></property>
+		<property name="Properties">
+			<props>
+				<prop key="테스트1">값1</prop>
+				<prop key="테스트2">값2</prop>
+				<prop key="테스트3">값3</prop>
+			</props>
+		</property>
+	</bean>
+
+
+</beans>
